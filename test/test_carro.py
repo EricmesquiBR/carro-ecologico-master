@@ -6,7 +6,7 @@ class TestCarro(unittest.TestCase):
     carro = None
 
     @classmethod
-    def setUpClass(cls):
+    def setUp(cls):
         cls.carro = Carro()
 
     def testInicializacao(self):
@@ -21,8 +21,7 @@ class TestCarro(unittest.TestCase):
         self.carro.embarcar()
         self.carro.embarcar()
         self.assertFalse(self.carro.embarcar(),"Como o carro estava cheio (2 passageiros), nao deve ser possivel embarcar")
-        self.assertEqual(1, self.carro.getPassageiros())
-
+        self.assertEqual(2, self.carro.getPassageiros())
     def testDesembarqueEmCarroVazio(self):
         self.assertFalse(self.carro.desembarcar(),  "Como o carro estava vazio, nao deve ser possivel desembarcar" )
         self.assertEqual(0, self.carro.getPassageiros())

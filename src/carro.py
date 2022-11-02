@@ -31,15 +31,17 @@ class Carro:
     def dirigir(self, distancia):
         if self.passageiros == 0 or self.combustivel == 0:
             return False
+
         else:
             if self.combustivel - distancia < 0:
-                self.quilometragem = self.quilometragem + distancia
+                self.quilometragem = self.quilometragem + (self.combustivel)
                 self.combustivel = 0
+                return False
+
             else:
                 self.quilometragem = self.quilometragem + distancia
                 self.combustivel = self.combustivel - distancia
-                print(f"O carro percorreu {distancia} kms")
-            return True
+                return True
 
     def abastecer(self, quantidade):
         if quantidade > 0:
